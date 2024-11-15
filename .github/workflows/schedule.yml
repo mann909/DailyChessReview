@@ -3,6 +3,7 @@ name: Scheduled Job
 on:
   schedule:
     - cron: '15 19 * * *' # Every day at 11 PM UTC
+  workflow_dispatch:
 
 jobs:
   run-script:
