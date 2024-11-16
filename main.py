@@ -21,10 +21,10 @@ users = [
 # Set up Chrome options
 if not DEBUG :
     options = Options()
-    options.add_argument("--headless")  # Enables headless mode
-    options.add_argument("--disable-gpu")  # Optional; needed for some headless configurations
-    options.add_argument("--no-sandbox")  # Optional; can help prevent crashes in some environments
-    options.add_argument("--disable-dev-shm-usage")  # Optional; helps prevent crashes in low memory environments
+    # options.add_argument("--headless")  # Enables headless mode
+    # options.add_argument("--disable-gpu")  # Optional; needed for some headless configurations
+    # options.add_argument("--no-sandbox")  # Optional; can help prevent crashes in some environments
+    # options.add_argument("--disable-dev-shm-usage")  # Optional; helps prevent crashes in low memory environments
 
 def login_and_review(username, password):
     # Set up the WebDriver (e.g., for Chrome)
@@ -71,7 +71,9 @@ def login_and_review(username, password):
     try:
         driver.find_element(By.CSS_SELECTOR, "h3.modal-upgrade-game-review-limit")
         print(username," has already used their daily free review !!")
+        sendSms("DAILY CHESS REVIEW : You have already Used Your daily chess review")
     except :
+        sendSms("DAILY CHESS REVIEW : Your daily chess.com review was used")
         print("Reviewed the last game for ",username)
 
     # Close the browser
@@ -81,5 +83,4 @@ def login_and_review(username, password):
 for user in users:
     login_and_review(user["username"], user["password"])
     
-sendSms()
 
