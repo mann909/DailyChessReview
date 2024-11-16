@@ -2,7 +2,7 @@ name: Scheduled Job
 
 on:
   schedule:
-    - cron: "30 3 * * *" # Every day at 11 PM UTC
+    - cron: '0 18 * * *' # Every day at 11 PM UTC
   workflow_dispatch:
 
 jobs:
