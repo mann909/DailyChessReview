@@ -69,7 +69,7 @@ def login_and_review(username, password):
         
     #extra
     driver.execute_script("arguments[0].scrollIntoView();", links[0])
-    WebDriverWait(driver, 10).until(EC.invisibility_of_element((By.TAG_NAME, "span")))
+    # WebDriverWait(driver, 10).until(EC.invisibility_of_element((By.TAG_NAME, "span")))
     driver.execute_script("arguments[0].click();", links[0])
 
     time.sleep(15)  # Give some time for review to complete
