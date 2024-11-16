@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium.webdriver.chrome.options import Options
 from sendSms import sendSms
@@ -27,8 +28,6 @@ if not DEBUG :
     # options.add_argument("--disable-dev-shm-usage")  # Optional; helps prevent crashes in low memory environments
 
 def login_and_review(username, password):
-    # Set up the WebDriver (e.g., for Chrome)
-    # Initialize the driver with options
     if not DEBUG : 
         driver = webdriver.Chrome(options=options)
     else :
@@ -64,7 +63,11 @@ def login_and_review(username, password):
     
     links = driver.find_elements(By.CLASS_NAME, "archive-games-link")
     print("Total Number of non-reviewed games : ",len(links))
-    links[0].click()
+        
+    #extra
+    driver.execute_script("arguments[0].scrollIntoView();", links[0])
+    # WebDriverWait(driver, 10).until(EC.invisibility_of_element((By.TAG_NAME, "span")))
+    driver.execute_script("arguments[0].click();", links[0])
 
     time.sleep(15)  # Give some time for review to complete
     
