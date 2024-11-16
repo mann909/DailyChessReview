@@ -9,7 +9,7 @@ api_key = os.getenv('VONAGE_API_KEY')
 api_secret = os.getenv('VONAGE_API_SECRET')
 phone=os.getenv('MY_PHONE_NUMBER')
 
-def sendSms():
+def sendSms(msg):
     client = vonage.Client(key=api_key, secret=api_secret)
     sms = vonage.Sms(client)
 
@@ -17,7 +17,7 @@ def sendSms():
         {
             "from": "Mann's Chess Review System",
             "to": str(phone),
-            "text": "Your daily chess.com review was used",
+            "text": msg,
         }
     )
 
