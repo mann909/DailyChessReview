@@ -22,8 +22,8 @@ users = [
 # Set up Chrome options
 if not DEBUG :
     options = Options()
-    # options.add_argument("--headless")  # Enables headless mode
-    options.add_argument("--disable-gpu")  # Optional; needed for some headless configurations
+    options.add_argument("--headless")  # Enables headless mode
+    # options.add_argument("--disable-gpu")  # Optional; needed for some headless configurations
     options.add_argument("--no-sandbox")  # Optional; can help prevent crashes in some environments
     options.add_argument("--disable-dev-shm-usage")  # Optional; helps prevent crashes in low memory environments
 
