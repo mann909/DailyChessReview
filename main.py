@@ -74,9 +74,10 @@ def login_and_review(username, password):
     try:
         driver.find_element(By.CSS_SELECTOR, "h3.modal-upgrade-game-review-limit")
         print(username," has already used their daily free review !!")
-        sendSms("DAILY CHESS REVIEW : You have already Used Your daily chess review")
-    except :
-        sendSms("DAILY CHESS REVIEW : Your daily chess.com review was used")
+        # sendSms("DAILY CHESS REVIEW : You have already Used Your daily chess review")
+    except Exception as e :
+        print(e)
+        # sendSms("DAILY CHESS REVIEW : Your daily chess.com review was used")
         print("Reviewed the last game for ",username)
 
     # Close the browser
